@@ -1,7 +1,9 @@
+import java.util.Objects;
+
 public class Player {
-    private int id;
-    private String name;
-    private int strength;
+    protected int id;
+    protected String name;
+    protected int strength;
 
     public Player(int id, String name, int strength) {
         this.id = id;
@@ -21,10 +23,6 @@ public class Player {
         return strength;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -32,4 +30,16 @@ public class Player {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return name == player.name;
+    }
+
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
 }
